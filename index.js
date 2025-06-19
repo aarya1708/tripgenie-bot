@@ -21,7 +21,7 @@ const startSock = async () => {
 
         if (qr) {
             console.log("📱 Scan this QR code in WhatsApp:");
-            generate(qr, { small: true });
+            qrcode.generate(qr, { small: true });
         }
 
         if (connection === "close") {
@@ -111,7 +111,7 @@ const startSock = async () => {
 
         if (text.toLowerCase() === END_TRIGGER_WORD) {
             if(activeUsers.has(sender)) {
-                await axios.post("http://127.0.0.1:5000/message", {
+                await axios.post("https://tripgenie-r5f3.onrender.com/message", {
                     sender,
                     message: "end_session",
                 });
@@ -137,7 +137,7 @@ const startSock = async () => {
 
         try {
             // Forward message as is to your Python backend for further handling
-            const res = await axios.post("http://127.0.0.1:5000/message", {
+            const res = await axios.post("https://tripgenie-r5f3.onrender.com/message", {
                 sender,
                 message: text,
             });
