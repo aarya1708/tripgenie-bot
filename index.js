@@ -4,6 +4,7 @@ const express = require("express");
 const axios = require("axios");
 const fs = require("fs");
 const qrcode = require("qrcode-terminal");
+const { generate } = require("qrcode-terminal");
 
 // let botActive = true;
 // const ownerNumber = "919426358505@s.whatsapp.net";
